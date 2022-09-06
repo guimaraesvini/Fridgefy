@@ -5,9 +5,10 @@
   background-image: url(../../../public/images/bg-home.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 93vh;
+  height: 92.5vh;
   color: white;
   border-bottom: 2vh solid #FFBD00;
+  overflow: hidden;
 }
 
 .container div{
@@ -23,12 +24,13 @@
   line-height: 70px;
 }
 
-.container button{
+.container a{
   color: black;
   background-color: #FFBD00;
   border: none;
   border-radius: 20px 20px 20px 0;
   text-transform: uppercase;
+  text-decoration: none;
   padding: 14px 30px;
   font-weight: 700;
   font-size: 20px;
@@ -36,7 +38,7 @@
   transition: all 0.4s;
 }
 
-.container button:hover{
+.container a:hover{
   background-color: #FF5400;
   color:white;
   transition: all 0.4s;
