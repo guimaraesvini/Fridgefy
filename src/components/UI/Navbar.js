@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import { signInWithGoogle, signUserOut, db } from "../../store/Firebase";
-import { doc, setDoc } from "firebase/firestore";
 import UserContext from "../../store/user-context";
 
 import classes from "./Navbar.module.css";
@@ -10,8 +9,8 @@ import classes from "./Navbar.module.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, logout, isLoggedIn, userInfo, UID } = useContext(AuthContext);
-  const { logOutClear, userIngredients, userRecipes } = useContext(UserContext);
+  const { login, logout, isLoggedIn, userInfo } = useContext(AuthContext);
+  const { logOutClear } = useContext(UserContext);
 
   const handleLogin = () => {
     signInWithGoogle(login, ()=> navigate('/recipes'));
@@ -27,9 +26,6 @@ const Navbar = () => {
 
   };
 
-  // const handleCurrent = () => {
-  //   getUserData();
-  // };
 
   return (
     <>
@@ -60,9 +56,6 @@ const Navbar = () => {
               Login
             </button>
           )}
-          {/* <button className={classes["log-buttons"]} onClick={handleCurrent}>
-          Current
-        </button> */}
           {isLoggedIn && (
             <button className={classes["log-buttons"]} onClick={handleLogout}>
               <img src="./images/btn-logout.png" />
